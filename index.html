@@ -241,19 +241,23 @@
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+
+// Create close button inside navbar
 const closeBtn = document.createElement('span');
 closeBtn.innerHTML = '&times;';
 closeBtn.classList.add('close-btn');
-navLinks.appendChild(closeBtn);
+document.getElementById('navbar').appendChild(closeBtn);
 
 hamburger.addEventListener('click', function() {
   this.classList.toggle('active');
   navLinks.classList.toggle('active');
+  closeBtn.classList.toggle('visible'); // Show close button
 });
 
 closeBtn.addEventListener('click', function() {
   navLinks.classList.remove('active');
   hamburger.classList.remove('active');
+  this.classList.remove('visible'); // Hide close button
 });
 
 // Auto-typing effect
@@ -287,14 +291,14 @@ function erase() {
 const revealElements = document.querySelectorAll('.service-card, .timeline-item, .skill, .about-img, .about-text');
 
 function revealOnScroll() {
-  for (let i = 0; i < revealElements.length; i++) {
+  revealElements.forEach(element => {
     const windowHeight = window.innerHeight;
-    const elementTop = revealElements[i].getBoundingClientRect().top;
+    const elementTop = element.getBoundingClientRect().top;
     const elementVisible = 150;
     if (elementTop < windowHeight - elementVisible) {
-      revealElements[i].classList.add('active');
+      element.classList.add('active');
     }
-  }
+  });
 }
 
 // Active Navigation Links
@@ -303,7 +307,6 @@ const navLi = document.querySelectorAll('.nav-links li a');
 
 window.addEventListener('scroll', function() {
   let current = '';
-  
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
