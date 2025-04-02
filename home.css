@@ -1066,3 +1066,29 @@ body.dark-mode .theme-switch {
     opacity: 1;
     visibility: visible;
 }
+
+
+.skill-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .skill-list li {
+    padding: 8px 20px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(42, 117, 252, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .skill-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(42, 117, 252, 0.3);
+  }
+
+
